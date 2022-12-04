@@ -1,18 +1,18 @@
 ﻿//Задайте массив вещественных чисел. 
 //Найдите разницу между максимальным и минимальным элементов массива.
 
-int[] GenerateArray(int Length, int min, int max)
+double[] GenerateArray(int Length, double min, double max)
 {
-    int[] array = new int[Length];
+    double[] array = new double[Length];
     
     for(int i = 0; i < Length; i++)
     {
-        array[i] = new Random().Next(min, max);
+        array[i] = min + new Random().NextDouble() * (max - min);
     }
     return array;
 }
 
-void PrintArray(int[] array)
+void PrintArray(double[] array)
 {
     for(int i = 0; i < array.Length; i++)
     {
@@ -21,21 +21,21 @@ void PrintArray(int[] array)
     System.Console.WriteLine();
 }
 
-int MinMaxDifference(int[] array)
+double MinMaxDifference(double[] array)
 {
-    int min = array[0];
-    int max = array[0];
+    double min = array[0];
+    double max = array[0];
     for(int i = 1; i < array.Length; i++)
     {
         if(array[i] < min) min = array[i];
         if(array[i] > max) max = array[i];
     }
-    int diff = max - min;
+    double diff = max - min;
     return diff;
 }
 
-int[] arr = GenerateArray(10, -100, 100);
+double[] arr = GenerateArray(10, -10, 10);
 PrintArray(arr);
 
-int difference = MinMaxDifference(arr);
+double difference = MinMaxDifference(arr);
 System.Console.WriteLine($"Разница между максимальным и минимальным элементами массива равна {difference}");
