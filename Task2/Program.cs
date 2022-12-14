@@ -24,9 +24,9 @@ void PrintArray(int[] array)
 int oddSumm(int[] array)
 {
     int summ = 0;
-    for(int i = 0; i < array.Length; i++)
+    for(int i = 1; i < array.Length; i=i+2)
     {
-        if(i % 2 == 1) summ = summ + array[i];
+        summ = summ + array[i];
     }
     return summ;
 }
